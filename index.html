@@ -1,25 +1,15 @@
 ﻿<!DOCTYPE html>
-<!-- saved from url=(0073)file:///C:/Users/Leonardo%20trentini/Downloads/vesto-group-landing_1.html -->
-<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Vesto Group — gestão e automação de grupos do WhatsApp">
   <title>Vesto Group — Automação de grupos WhatsApp</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-  <script src="https://fast.wistia.com/player.js" async></script>
-  <script src="https://fast.wistia.com/embed/33522vqatf.js" async type="module"></script>
-  <style>
-    wistia-player[media-id='33522vqatf']:not(:defined) {
-      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/33522vqatf/swatch');
-      display: block;
-      filter: blur(5px);
-      padding-top: 56.25%;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="./assets/vesto-logo-gold.webp" type="image/webp">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"></noscript>
 
   <style>
     :root {
@@ -69,9 +59,8 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(7,15,12,0.95);
+      background: var(--brand-950);
       border-bottom: 1px solid rgba(21,53,40,0.8);
-      backdrop-filter: blur(12px);
     }
     .header-inner {
       display: flex;
@@ -85,6 +74,7 @@
       gap: 0.5rem;
       min-width: 0;
     }
+    .logo picture { display: flex; flex-shrink: 0; }
     .logo img {
       height: 1.875rem;
       width: auto;
@@ -190,8 +180,40 @@
       overflow: hidden;
       border: 1px solid rgba(21,53,40,0.6);
       box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      aspect-ratio: 16 / 9;
+      background: var(--brand-900);
     }
     .vsl-wrap wistia-player { display: block; width: 100%; }
+    wistia-player[media-id='33522vqatf']:not(:defined) {
+      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/33522vqatf/swatch');
+      display: block;
+      padding-top: 56.25%;
+    }
+    .vsl-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--brand-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+    }
+    .vsl-placeholder svg {
+      width: 4rem;
+      height: 4rem;
+      color: var(--accent-400);
+      opacity: 0.9;
+    }
+    .features-section,
+    .testimonials-section,
+    .pricing-section,
+    .garantia-section,
+    footer {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 600px;
+    }
     .vsl-cta-wrap {
       text-align: center;
       margin-top: 1.5rem;
@@ -623,7 +645,10 @@
 <header>
   <div class="container header-inner">
     <a href="/" class="logo">
-      <img src="./assets/vesto-logo-gold.jpg" alt="Vesto Group logo">
+      <picture>
+        <source srcset="./assets/vesto-logo-gold.webp" type="image/webp">
+        <img src="./assets/vesto-logo-gold-sm.jpg" alt="Vesto Group logo" width="36" height="36" fetchpriority="high" decoding="async">
+      </picture>
       <span class="logo-text">Vesto <span>Group</span></span>
     </a>
 
@@ -660,8 +685,10 @@
 <!-- ══ VSL ══════════════════════════════════════════════════ -->
 <section class="vsl-section">
   <div class="container">
-    <div class="vsl-wrap">
-      <wistia-player media-id="33522vqatf" seo="false" aspect="1.7777777777777777"></wistia-player>
+    <div class="vsl-wrap" id="vsl-wrap">
+      <button type="button" class="vsl-placeholder" id="vsl-placeholder" aria-label="Carregar vídeo de apresentação">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+      </button>
     </div>
     <div class="vsl-cta-wrap">
       <a href="https://pay.kiwify.com.br/7GH0yQa" class="btn-primary">COMEÇAR AGORA!</a>
@@ -744,7 +771,10 @@
 
       <div class="testimonial-card">
         <div class="testimonial-head">
-          <img class="avatar" src="./assets/avatars/renata.jpg" alt="Renata Vieira" loading="lazy">
+          <picture>
+            <source srcset="./assets/avatars/renata.webp" type="image/webp">
+            <img class="avatar" src="./assets/avatars/renata.jpg" alt="Renata Vieira" width="40" height="40" loading="lazy" decoding="async">
+          </picture>
           <div>
             <div class="testimonial-name">Renata Vieira</div>
             <div class="testimonial-role">Infoprodutora, SP</div>
@@ -755,7 +785,10 @@
 
       <div class="testimonial-card">
         <div class="testimonial-head">
-          <img class="avatar" src="./assets/avatars/marcos.jpg" alt="Marcos Duarte" loading="lazy">
+          <picture>
+            <source srcset="./assets/avatars/marcos.webp" type="image/webp">
+            <img class="avatar" src="./assets/avatars/marcos.jpg" alt="Marcos Duarte" width="40" height="40" loading="lazy" decoding="async">
+          </picture>
           <div>
             <div class="testimonial-name">Marcos Duarte</div>
             <div class="testimonial-role">Agência de tráfego, BH</div>
@@ -766,7 +799,10 @@
 
       <div class="testimonial-card">
         <div class="testimonial-head">
-          <img class="avatar" src="./assets/avatars/juliana.jpg" alt="Juliana Prado" loading="lazy">
+          <picture>
+            <source srcset="./assets/avatars/juliana.webp" type="image/webp">
+            <img class="avatar" src="./assets/avatars/juliana.jpg" alt="Juliana Prado" width="40" height="40" loading="lazy" decoding="async">
+          </picture>
           <div>
             <div class="testimonial-name">Juliana Prado</div>
             <div class="testimonial-role">Community manager</div>
@@ -777,7 +813,10 @@
 
       <div class="testimonial-card">
         <div class="testimonial-head">
-          <img class="avatar" src="./assets/avatars/felipe.jpg" alt="Felipe Nogueira" loading="lazy">
+          <picture>
+            <source srcset="./assets/avatars/felipe.webp" type="image/webp">
+            <img class="avatar" src="./assets/avatars/felipe.jpg" alt="Felipe Nogueira" width="40" height="40" loading="lazy" decoding="async">
+          </picture>
           <div>
             <div class="testimonial-name">Felipe Nogueira</div>
             <div class="testimonial-role">Loja online</div>
@@ -861,7 +900,10 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">
-          <img src="./assets/vesto-logo-gold.jpg" alt="Vesto Group logo">
+          <picture>
+            <source srcset="./assets/vesto-logo-gold.webp" type="image/webp">
+            <img src="./assets/vesto-logo-gold-sm.jpg" alt="Vesto Group logo" width="36" height="36" loading="lazy" decoding="async">
+          </picture>
           <span class="logo-text">Vesto <span>Group</span></span>
         </div>
         <p>Automação, analytics e gestão de comunidades no WhatsApp — solução Vesto Group para infoprodutores, agências e operações que vendem em escala.</p>
@@ -895,6 +937,59 @@
   mobileNav.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => mobileNav.classList.remove('open'));
   });
+
+  (function () {
+    const wrap = document.getElementById('vsl-wrap');
+    const placeholder = document.getElementById('vsl-placeholder');
+    if (!wrap || !placeholder) return;
+
+    let loaded = false;
+    function loadWistia() {
+      if (loaded) return;
+      loaded = true;
+
+      const player = document.createElement('script');
+      player.src = 'https://fast.wistia.com/player.js';
+      player.async = true;
+
+      const embed = document.createElement('script');
+      embed.src = 'https://fast.wistia.com/embed/33522vqatf.js';
+      embed.async = true;
+      embed.type = 'module';
+
+      document.head.appendChild(player);
+      document.head.appendChild(embed);
+      wrap.innerHTML = '<wistia-player media-id="33522vqatf" seo="false" aspect="1.7777777777777777"></wistia-player>';
+    }
+
+    placeholder.addEventListener('click', loadWistia);
+    placeholder.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        loadWistia();
+      }
+    });
+
+    function scheduleWistia() {
+      const start = () => {
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+              (window.requestIdleCallback || function (cb) { setTimeout(cb, 1); })(loadWistia);
+              observer.disconnect();
+            }
+          }, { rootMargin: '120px' });
+          observer.observe(wrap);
+        } else {
+          setTimeout(loadWistia, 2000);
+        }
+      };
+      if (document.readyState === 'complete') start();
+      else window.addEventListener('load', start);
+    }
+
+    scheduleWistia();
+  })();
 </script>
 
 
