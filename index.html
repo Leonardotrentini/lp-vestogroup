@@ -175,30 +175,15 @@
       border-radius: var(--radius-2xl);
       overflow: hidden;
       border: 1px solid rgba(21,53,40,0.6);
-      
       aspect-ratio: 16 / 9;
       background: var(--brand-900);
     }
-    
-    
-    .vsl-placeholder {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: var(--brand-900);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border: 0;
-      padding: 0;
+    .vsl-wrap wistia-player { display: block; width: 100%; }
+    wistia-player[media-id='33522vqatf']:not(:defined) {
+      background: center / cover no-repeat url('https://fast.wistia.com/embed/medias/33522vqatf/swatch');
+      display: block;
+      padding-top: 56.25%;
     }
-    .vsl-placeholder svg {
-      width: 4rem;
-      height: 4rem;
-      color: var(--accent-400);
-      opacity: 0.9;
-    }
-    
     .vsl-cta-wrap {
       text-align: center;
       margin-top: 1.5rem;
@@ -242,6 +227,11 @@
   </style>
   <link rel="stylesheet" href="./assets/styles-deferred.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="./assets/styles-deferred.css"></noscript>
+
+  <link rel="preconnect" href="https://fast.wistia.com">
+  <link rel="preconnect" href="https://embed-ssl.wistia.com">
+  <script src="https://fast.wistia.com/player.js" async></script>
+  <script src="https://fast.wistia.com/embed/33522vqatf.js" async type="module"></script>
 </head>
 <body>
 
@@ -289,10 +279,8 @@
 <!-- ══ VSL ══════════════════════════════════════════════════ -->
 <section class="vsl-section">
   <div class="container">
-    <div class="vsl-wrap" id="vsl-wrap">
-      <button type="button" class="vsl-placeholder" id="vsl-placeholder" aria-label="Carregar vídeo de apresentação">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-      </button>
+    <div class="vsl-wrap">
+      <wistia-player media-id="33522vqatf" seo="false" aspect="1.7777777777777777"></wistia-player>
     </div>
     <div class="vsl-cta-wrap">
       <a href="https://pay.kiwify.com.br/7GH0yQa" class="btn-primary">COMEÇAR AGORA!</a>
@@ -542,39 +530,6 @@
     a.addEventListener('click', () => mobileNav.classList.remove('open'));
   });
 
-  (function () {
-    const wrap = document.getElementById('vsl-wrap');
-    const placeholder = document.getElementById('vsl-placeholder');
-    if (!wrap || !placeholder) return;
-
-    let loaded = false;
-    function loadWistia() {
-      if (loaded) return;
-      loaded = true;
-
-      const player = document.createElement('script');
-      player.src = 'https://fast.wistia.com/player.js';
-      player.async = true;
-
-      const embed = document.createElement('script');
-      embed.src = 'https://fast.wistia.com/embed/33522vqatf.js';
-      embed.async = true;
-      embed.type = 'module';
-
-      document.head.appendChild(player);
-      document.head.appendChild(embed);
-      wrap.innerHTML = '<wistia-player media-id="33522vqatf" seo="false" aspect="1.7777777777777777"></wistia-player>';
-    }
-
-    placeholder.addEventListener('click', loadWistia);
-    placeholder.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        loadWistia();
-      }
-    });
-
-  })();
 </script>
 
 
